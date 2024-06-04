@@ -44,17 +44,17 @@ public class CustomerController {
         return new ResponseEntity<>(customerService.getAllCustomers(), HttpStatus.OK);
     }
 
-    @GetMapping("/exists/${customer-id}")
+    @GetMapping("/exists/{customer-id}")
     public ResponseEntity<Boolean> existsById(@PathVariable("customer-id") String customerId) {
         return new ResponseEntity<>(customerService.existsById(customerId),HttpStatus.OK);
     }
 
-    @GetMapping("/${customer-id}")
+    @GetMapping("/{customer-id}")
     public ResponseEntity<CustomerResponse> getCustomerById(@PathVariable("customer-id") String customerId) {
         return new ResponseEntity<>(customerService.getCustomerById(customerId),HttpStatus.OK);
     }
 
-    @DeleteMapping("/${customer-id}")
+    @DeleteMapping("/{customer-id}")
     public ResponseEntity<Void> deleteById(@PathVariable("customer-id") String customerId) {
         customerService.deleteByCustomerId(customerId);
         return new ResponseEntity<>(HttpStatus.OK);
