@@ -19,6 +19,6 @@ public record OrderRequest(
         @NotEmpty(message = "Customer id can not be blank")
         String customerId,
         @NotEmpty(message = "You should at least purchase one product")
-        List<PurchaseRequest> requests
+        List<PurchaseRequest> products
 ) {
 }
