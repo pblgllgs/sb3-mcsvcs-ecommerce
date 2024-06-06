@@ -7,6 +7,7 @@ package com.pblgllgs.order.mapper;
  */
 
 import com.pblgllgs.order.dto.OrderLineRequest;
+import com.pblgllgs.order.dto.OrderLineResponse;
 import com.pblgllgs.order.entity.Order;
 import com.pblgllgs.order.entity.OrderLine;
 import org.springframework.stereotype.Service;
@@ -24,5 +25,12 @@ public class OrderLineMapper {
                 )
                 .productId(orderLineRequest.productId())
                 .build();
+    }
+
+    public OrderLineResponse fromOrderLine(OrderLine orderLine) {
+        return new OrderLineResponse(
+                orderLine.getId(),
+                orderLine.getQuantity()
+        );
     }
 }

@@ -5,7 +5,9 @@ import com.pblgllgs.order.client.ProductClient;
 import com.pblgllgs.order.dto.*;
 import com.pblgllgs.order.exception.BusinessException;
 import com.pblgllgs.order.kafka.OrderProducer;
+import com.pblgllgs.order.mapper.OrderLineMapper;
 import com.pblgllgs.order.mapper.OrderMapper;
+import com.pblgllgs.order.repository.OrderLineRepository;
 import com.pblgllgs.order.repository.OrderRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
@@ -24,11 +26,13 @@ import java.util.List;
 public class OrderService {
 
     private final OrderRepository orderRepository;
+    private final OrderLineRepository orderLineRepository;
     private final CustomerClient customerClient;
     private final ProductClient productClient;
-    private final OrderMapper orderMapper;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
+    private final OrderMapper orderMapper;
+    private final OrderLineMapper orderLineMapper;
 
     public Integer createOrder(OrderRequest orderRequest) {
         CustomerResponse customerResponse = customerClient.getCustomerById(orderRequest.customerId()).orElseThrow(
@@ -71,5 +75,12 @@ public class OrderService {
                 .map(orderMapper::fromOrder)
                 .orElseThrow(
                         () -> new EntityNotFoundException(String.format("Order with id %s not found", orderId)));
+    }
+
+    public List<OrderLineResponse> findAllByOrderId(Integer orderId) {
+        return orderLineRepository.findAllByOrderId(orderId)
+                .stream()
+                .map(orderLineMapper::fromOrderLine)
+                .toList();
     }
 }
