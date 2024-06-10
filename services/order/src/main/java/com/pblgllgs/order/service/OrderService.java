@@ -1,6 +1,7 @@
 package com.pblgllgs.order.service;
 
 import com.pblgllgs.order.client.CustomerClient;
+import com.pblgllgs.order.client.PaymentClient;
 import com.pblgllgs.order.client.ProductClient;
 import com.pblgllgs.order.dto.*;
 import com.pblgllgs.order.exception.BusinessException;
@@ -29,6 +30,7 @@ public class OrderService {
     private final OrderLineRepository orderLineRepository;
     private final CustomerClient customerClient;
     private final ProductClient productClient;
+    private final PaymentClient paymentClient;
     private final OrderLineService orderLineService;
     private final OrderProducer orderProducer;
     private final OrderMapper orderMapper;
@@ -51,6 +53,16 @@ public class OrderService {
                     )
             );
         }
+
+        var paymentRequest = new PaymentRequest(
+                orderRequest.amount(),
+                orderRequest.paymentMethod(),
+                order.getId(),
+                order.getReference(),
+                customerResponse
+        );
+
+        paymentClient.requestOrderPayment(paymentRequest);
 
         orderProducer.sendOrderConfirmation(new OrderConfirmation(
                 orderRequest.reference(),

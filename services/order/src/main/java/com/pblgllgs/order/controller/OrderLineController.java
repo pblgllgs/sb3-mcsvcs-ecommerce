@@ -21,7 +21,7 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping("/í/v1/order-line")
+@RequestMapping("/í/v1/order-lines")
 @RequiredArgsConstructor
 public class OrderLineController {
 

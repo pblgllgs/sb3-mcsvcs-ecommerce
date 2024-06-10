@@ -86,13 +86,13 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
     networks:
       - microservices-net
-#
-#  mail-dev:
-#    container_name: ms-mail-dev
-#    image: maildev/maildev
-#    ports:
-#      - 1080:1080
-#      - 1025:1025
+
+  mail-dev:
+    container_name: ms-mail-dev
+    image: maildev/maildev
+    ports:
+      - 1080:1080
+      - 1025:1025
 
 networks:
   microservices-net:

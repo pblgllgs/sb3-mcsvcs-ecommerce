@@ -4,7 +4,6 @@ import com.pblgllgs.payment.dto.PaymentRequest;
 import com.pblgllgs.payment.service.PaymentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,7 +25,7 @@ public class PaymentController {
     private final PaymentService paymentService;
 
     @PostMapping
-    public ResponseEntity<Integer> createPayment(@RequestBody @Valid PaymentRequest paymentRequest){
+    public ResponseEntity<Integer> createPayment(@RequestBody @Valid PaymentRequest paymentRequest) {
         return new ResponseEntity<>(paymentService.createPayment(paymentRequest), HttpStatus.CREATED);
     }
 }

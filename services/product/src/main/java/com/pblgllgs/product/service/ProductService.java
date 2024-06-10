@@ -11,10 +11,10 @@ import com.pblgllgs.product.dto.ProductPurchaseResponse;
 import com.pblgllgs.product.dto.ProductRequest;
 import com.pblgllgs.product.dto.ProductResponse;
 import com.pblgllgs.product.entity.Product;
-import com.pblgllgs.product.exception.EntityNotFoundException;
 import com.pblgllgs.product.exception.ProductPurchaseException;
 import com.pblgllgs.product.mapper.ProductMapper;
 import com.pblgllgs.product.repository.ProductRepository;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -52,8 +52,8 @@ public class ProductService {
         for (int i = 0; i < storedProducts.size(); i++) {
             var product = storedProducts.get(i);
             var productRequest = storedRequest.get(i);
-            if (product.getAvailableQuantity() < productRequest.quantity()){
-                throw new ProductPurchaseException("Insufficient stock of product: "+ product.getName());
+            if (product.getAvailableQuantity() < productRequest.quantity()) {
+                throw new ProductPurchaseException("Insufficient stock of product: " + product.getName());
             }
             var newAvailableQuantity = product.getAvailableQuantity() - productRequest.quantity();
             product.setAvailableQuantity(newAvailableQuantity);

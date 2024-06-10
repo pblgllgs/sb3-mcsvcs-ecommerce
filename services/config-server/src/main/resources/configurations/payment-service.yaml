@@ -5,7 +5,7 @@ spring:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
-        spring.json.type.mapping: paymentNotification:com.pblgllgs.payment.dto.PaymentNotificationRequest;
+        spring.json.type.mapping: paymentConfirmation:com.pblgllgs.payment.dto.PaymentNotificationRequest
   datasource:
     url: jdbc:postgresql://localhost:5432/payment
     username: postgres
@@ -13,11 +13,11 @@ spring:
     driver-class-name: org.postgresql.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
 server:
-  port: 8040
+  port: 8060
 application:
   config:
     customer-url: http://localhost:8222/api/v1/customers
