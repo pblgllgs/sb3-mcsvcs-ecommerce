@@ -163,8 +163,6 @@ Oservices/notification/src/main/java/com/pblgllgs/notification/dto/Customer.java
 Nservices/notification/src/main/java/com/pblgllgs/notification/dto/Product.java,d\b\db876a2b8b9ff62dd180f4a2ca4f1fa53ef2e2b8
 î
 dservices/notification/src/main/java/com/pblgllgs/notification/repository/NotificationRepository.java,4\1\4196db1c2c3924b8edfe12d03005818795943bf8
-ç
-]services/notification/src/main/java/com/pblgllgs/notification/kafka/NotificationConsumer.java,c\6\c69a94608c4cde8fc60d979e2e6994d6101d07f1
 á
 Wservices/notification/src/main/java/com/pblgllgs/notification/service/EmailService.java,7\4\7496076f3701d84f4ec575f3a5c985c25bcb4a39
 ä
@@ -179,3 +177,13 @@ H
 ^services/notification/src/main/java/com/pblgllgs/notification/kafka/NotificationsConsumer.java,b\4\b429e2ad33042f720d712192bba803e89c08a0a4
 N
 services/config-server/pom.xml,f\2\f29a944c734cc0b47102730d95018f7c717d5e3f
+I
+services/customer/pom.xml,1\1\11dd01c60d0ca423e0d715f727c29a5540a6a9c5
+M
+services/notification/pom.xml,a\0\a0a8f6f4f651185803c04ddcb88bd80501bd1f4c
+H
+services/payment/pom.xml,4\e\4e77c4d81e648f7ca37af08b0ecf1307b6959e27
+{
+Kservices/gateway/src/main/java/com/pblgllgs/gateway/GatewayApplication.java,1\2\12af07b5b6ba52b9bfce2a4216251c5a358e88c6
+Ä
+Pservices/gateway/src/main/java/com/pblgllgs/gateway/security/SecurityConfig.java,c\4\c4d2665d5956df3de1656dfd89321135cc2799a4
